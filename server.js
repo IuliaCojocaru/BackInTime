@@ -1,7 +1,7 @@
 /*!
  * Logicless Prototypr Application Server
  * 
- * Copyright (C) 2014 Flavius Olaru
+ * 
  * MIT Licensed
  */
 
