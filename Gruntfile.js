@@ -1,19 +1,19 @@
 module.exports = function(grunt) {
-  //require('jit-grunt')(grunt);
+  require('jit-grunt')(grunt);
   // Project configuration.
   // Will need to be updated when structure available.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     uglify: {
       options: {
-        banner: '/! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> /\n'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
         src: 'src/<%= pkg.name %>.js',
         dest: 'build/<%= pkg.name %>.min.js'
       }
     },
- less: {
+	less: {
       development: {
         options: {
           compress: true,
@@ -21,16 +21,16 @@ module.exports = function(grunt) {
           optimization: 2
         },
         files: {
-          "assets/css/main.compiled.css": "assets/css/less/imports.less" // destination file and source file
+          "assets/css/main.compiled.css": "assets/css/imports.less" // destination file and source file
         }
       },
-   production: {
-   options: {
-    paths: ["assets/css"],
-    cleancss: true
-   },
-   files: {"assets/css/main.compiled.css": "assets/css/imports.less"}
-   }
+	  production: {
+		 options: {
+			 paths: ["assets/css"],
+			 cleancss: true
+		 },
+		 files: {"assets/css/main.compiled.css": "assets/css/imports.less"}
+	  }
     },
     watch: {
         styles: {
@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify', 'grunt-contrib-less', 'grunt-contrib-watch');
-require('load-grunt-tasks')(grunt);
+
   // Default task(s).
   grunt.registerTask('default', ['uglify', 'less', 'watch']);
 
