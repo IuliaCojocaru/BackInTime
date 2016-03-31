@@ -62,6 +62,7 @@ hbs = handlebars.create({
          }
      });
 
+
 // Register `hbs.engine` with the Express app.
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
